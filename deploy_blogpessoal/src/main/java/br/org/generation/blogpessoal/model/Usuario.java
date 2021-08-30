@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "tb_usuarios")
 public class Usuario {
@@ -28,6 +30,7 @@ public class Usuario {
 	@NotNull(message = "O Nome é Obrigatório!")
 	private String nome;
 
+	@ApiModelProperty(example = "email@email.com.br")
 	@NotNull(message = "O Usuário é Obrigatório!")
 	private String usuario;
 
@@ -38,6 +41,27 @@ public class Usuario {
 	@Column(name = "dt_nascimento")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dataNascimento;
+	
+	private String tipo;
+	
+	private String foto;
+	
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
